@@ -1,0 +1,48 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://booking.com/ws/ticket"
+	targetNamespace="http://booking.com/ws/ticket"
+	elementFormDefault="qualified">
+
+	<xs:element name="getBookingRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="passangerDetails"
+					type="tns:passangerDetails" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="getBookingResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="bookingDetails"
+					type="tns:bookingDetails" />
+				<xs:element name="errors" type="tns:errors" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="passangerDetails">
+		<xs:sequence>
+			<xs:element name="firstName" type="xs:string" />
+			<xs:element name="lastName" type="xs:string" />
+			<xs:element name="passportNumber" type="xs:string" />
+			<xs:element name="dateOfJourney" type="xs:date" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="bookingDetails">
+		<xs:sequence>
+			<xs:element name="ticketId" type="xs:int" />
+			<xs:element name="passportNumber" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="errors">
+		<xs:sequence>
+			<xs:element name="errorMessage" type="xs:string" />
+			<xs:element name="errorCode" type="xs:int" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema> 
